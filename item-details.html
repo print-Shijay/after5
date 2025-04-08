@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details | After 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="menuData.js"></script> <!-- Add this line -->
+    <style>
+        .item-details-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        .item-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            cursor: pointer;
+            color: #4B4B3F;
+        }
+        
+        .item-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .item-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .item-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .item-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .item-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #4B4B3F;
+        }
+        
+        .item-price {
+            font-size: 1.8rem;
+            color: #B5A878;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .item-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .nutrition-info {
+            margin-top: 30px;
+        }
+        
+        .nutrition-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #4B4B3F;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .nutrition-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .nutrition-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .nutrition-label {
+            font-weight: 500;
+        }
+        
+        .nutrition-value {
+            color: #777;
+        }
+        
+        @media (max-width: 768px) {
+            .item-content {
+                flex-direction: column;
+            }
+            
+            .nutrition-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="item-details-container">
+        <div class="item-header">
+            <button class="back-button" onclick="returnToMenu()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h1>Item Details</h1>
+        </div>
+        
+        <div class="item-content" id="item-content">
+            <div class="item-image">
+                <img id="detail-image" src="" alt="Loading...">
+            </div>
+            
+            <div class="item-info">
+                <h2 class="item-title" id="detail-title">Loading...</h2>
+                <div class="item-price" id="detail-price"></div>
+                <p class="item-description" id="detail-desc"></p>
+                
+                <div class="nutrition-info">
+                    <h3 class="nutrition-title">Nutrition Information</h3>
+                    <div class="nutrition-list">
+                        <div class="nutrition-item">
+                            <span class="nutrition-label">Calories</span>
+                            <span class="nutrition-value" id="calories">-</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span class="nutrition-label">Protein</span>
+                            <span class="nutrition-value" id="protein">-</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span class="nutrition-label">Carbs</span>
+                            <span class="nutrition-value" id="carbs">-</span>
+                        </div>
+                        <div class="nutrition-item">
+                            <span class="nutrition-label">Fat</span>
+                            <span class="nutrition-value" id="fat">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const itemId = parseInt(urlParams.get('id'));
+            const category = urlParams.get('category');
+            
+            if (!itemId || !category) {
+                showError("Invalid item request. Missing ID or category.");
+                return;
+            }
+
+            // Find the item in the menuData
+            const categoryItems = menuData[category] || [];
+            const item = categoryItems.find(i => i.id === itemId);
+            
+            if (item) {
+                displayItem(item);
+            } else {
+                showError("The requested item could not be found.");
+            }
+        });
+
+        function displayItem(item) {
+            document.getElementById('detail-title').textContent = item.title;
+            document.getElementById('detail-price').textContent = item.price;
+            document.getElementById('detail-desc').textContent = item.desc;
+            
+            const imgElement = document.getElementById('detail-image');
+            imgElement.src = item.image;
+            imgElement.alt = item.title;
+            
+            // Optional: Add loading error handling
+            imgElement.onerror = function() {
+                this.src = 'images/placeholder.jpg'; // Fallback image
+            };
+        }
+
+        function showError(message) {
+            const contentDiv = document.getElementById('item-content');
+            contentDiv.innerHTML = `
+                <div class="alert alert-danger w-100">
+                    ${message} <a href="index.html" class="alert-link">Return to menu</a>
+                </div>
+            `;
+        }
+
+
+
+
+
+
+
+        
+
+    function returnToMenu() {
+        // Check if the previous page was index.html
+        if (document.referrer.includes('index.html')) {
+            // Set a flag in localStorage before going back
+            localStorage.setItem('shouldScrollToMenu', 'true');
+            window.history.back(); // Go back to the previous page
+        } else {
+            // If coming from outside, just link to index.html#menu-section
+            window.location.href = 'index.html#menu-section';
+        }
+    }
+        
+    </script>
+</body>
+</html>

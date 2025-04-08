@@ -1,0 +1,898 @@
+html {
+    scroll-behavior: smooth;
+    
+}
+
+
+body {
+    margin: 0;
+    background: #F6F9F9;
+    color: #4B4B3F;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10vh;
+    
+}
+
+.containerr {
+    height: 300vh;
+    position: relative;
+    margin-bottom: 5vh;
+    
+}
+
+
+
+
+
+.navbar .nav-link,
+.navbar-brand {
+    color: inherit !important;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    transition: background 0.3s ease-in-out;
+}
+
+
+.nav-hover {
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-hover:hover {
+    color: #B5A878 !important; 
+}
+
+
+/* Sticky Container */
+.sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+}
+
+/* Image containers */
+.el {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageContainer {
+    position: relative;
+    width: 25vw;
+    height: 25vh;
+    transform-origin: center center;
+}
+
+.imageContainer img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Positioning of each image */
+.el:nth-of-type(2) .imageContainer { top: -30vh; left: 5vw; width: 35vw; height: 30vh; }
+.el:nth-of-type(3) .imageContainer { top: -10vh; left: -25vw; width: 20vw; height: 45vh; }
+.el:nth-of-type(4) .imageContainer { left: 27.5vw; width: 25vw; height: 25vh; }
+.el:nth-of-type(5) .imageContainer { top: 27.5vh; left: 5vw; width: 20vw; height: 25vh; }
+.el:nth-of-type(6) .imageContainer { top: 27.5vh; left: -22.5vw; width: 30vw; height: 25vh; }
+.el:nth-of-type(7) .imageContainer { top: 22.5vh; left: 25vw; width: 15vw; height: 15vh; }
+
+
+.text-coffee {
+    color: #4B4B3F;
+}
+.about-image {
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Image Wrapper */
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Decorative Shape */
+.shape {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 80%;
+    height: 80%;
+    background: rgba(75, 75, 63, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* Social Media Icons */
+.social-icons a {
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+
+.gap{
+    gap: 8rem;
+}
+
+.menu-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #4B4B3F;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+.menu-item {
+    background-color: #4B4B3F; /* Brown background */
+    color: #F6F9F9; /* White icon and text */
+    padding: 25px;
+    width: 150px;
+    
+    text-align: center;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menu-item i {
+    font-size: 60px; /* Icon size */
+}
+
+
+#menu-section {
+    position: relative;
+    direction: rtl; /* Flip layout to clip the right side */
+    overflow-x: clip; /* Hides horizontal overflow (right side in this flipped direction) */
+}
+
+#menu-section > * {
+    direction: ltr; /* Flip content back to normal so text & layout are correct */
+}
+
+
+
+/*left*/
+
+.col-lg-7 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+    min-height: 40vh;
+    padding-left: 10rem;
+}
+
+
+
+#product-title,
+#product-desc,
+#add-to-cart {
+    text-align: left; /* Align text and button to the left */
+}
+
+#add-to-cart {
+    display: block;  /* Ensures the button takes up full width of its content */
+    margin-left: 0;  /* Align to the left */
+}
+
+#product-title {
+    font-size: 6rem; 
+
+}
+
+#product-desc {
+    font-size: 2rem; /* Larger description */
+
+}
+
+#add-to-cart {
+    background-color: #4B4B3F;
+    color: white;
+    border: none; /* Remove default border */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+
+#add-to-cart:hover {
+    background-color: #5B5C55; /* Slightly darker pastel green on hover */
+}
+
+/*left bot*/
+/* Button Styling */
+#prev-btn, #next-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;  /* Adjust width of the button */
+    height: 40px; /* Adjust height of the button */
+    border-radius: 50%;
+    font-size: 1.5rem;
+    padding: 0;
+    transition: background-color 0.3s ease-in-out;
+    z-index: 10; /* Ensure buttons are on top */
+}
+
+#sliderr{
+    z-index: 100;
+}
+
+
+/* Image Slider Container */
+.image-slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%; /* Adjust width to leave space for buttons */
+    width: 100%;
+    margin: 0 20px; /* Add space between buttons */
+    z-index: 3;
+}
+
+/* Image Styles */
+.slider-img {
+    width: 20vh;  /* Control image size */
+    height: 20vh;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    margin: 0 10px; /* Space between images */
+}
+
+
+
+/* Left and Right Button Hover Effect */
+#prev-btn:hover, #next-btn:hover {
+    background-color: #5B5C55;
+    color: white;
+}
+
+/* Highlighted image styles */
+.slider-img.highlight {
+    border: 3px solid #4B4B3F;  /* Gold border or any color you prefer */
+    transform: scale(1.1); /* Slightly enlarge the highlighted image */
+    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+
+
+/*right*/
+
+
+
+
+
+/* Rotating Table */
+.rotating-table {
+    width: 95vmin;
+    height: 95vmin;
+    background-color: #5B5C55; /* Solid table color */
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    right: -50vh;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    border: 10px solid #4B4B3F;
+    
+    z-index: 1;
+}
+
+
+.table-hole {
+    position: absolute;
+    width: 70vh;  /* Bigger hole */
+    height: 70vh;
+    aspect-ratio: 1 /1;
+    background-color: #f8f8f8; /* Match page background or change to your desired bg */
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 10px solid #4B4B3F;
+}
+
+
+
+/* Dish Styles */
+.dish {
+    width: 40vmin;
+    height: 40vmin;
+    aspect-ratio: 1/1;
+    position: absolute;
+    transform-origin: center;
+    border-radius: 50%;
+    border: 8px solid white;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+    background-color: #f8f1e4;
+    padding: 8px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 2;
+}
+
+
+
+
+/* Dish Positions - Adjusted for better visibility */
+.left { top: 42%; left: -10%; }
+.top { top: -10%; right: 42%; }
+.bottom { bottom: -10%; left: 42%; }
+.right { bottom: 42%; right:-10%; }
+
+/* Keep dishes upright */
+.rotating-table .dish {
+     transform: rotate(0deg); 
+     transition: transform 0.5s ease-in-out; 
+}
+/* Button Styling */
+.btn-dark {
+    background-color: #4B4B3F;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: background 0.3s;
+}
+
+.btn-dark:hover {
+    background-color: #5B5C55;
+}
+
+
+
+
+
+
+
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 3rem; /* Adjust this as needed */
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+    border: 5px solid #4B4B3F;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #4B4B3F;
+    z-index: 10; /* Make sure the logo is above */
+    pointer-events: none; /* Ensures it doesn't block clicks */
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav-item {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+#menu-tabs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Default layout (desktop) */
+#menu-tabs .nav-item {
+    flex: 0 1 auto;
+}
+
+
+
+.food-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    position: relative; /* Needed for absolute positioning */
+    margin-bottom: 20px;
+}
+
+/* Cart Button */
+.cart-button {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 38px;
+    height: 38px;
+    background-color: #4B4B3F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 2;
+}
+
+.cart-button:hover {
+    background-color: #3a3a32;
+    transform: scale(1.05);
+}
+
+
+/* Food Item Styling */
+.food-item {
+    background-color: #d3d3d3; /* Grey Background */
+    padding: 15px;
+    border-radius: 10px 10px 0 0; /* Remove bottom-left & bottom-right radius */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+    position: relative;
+}
+
+/* Image Wrapper */
+.food-img-wrapper {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.food-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Food Info */
+.food-info {
+    border: 3px dashed  #4B4B3F;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.food-info h4{
+    font-size: clamp(0.8rem, 2.5vw, 1.2rem); /* Auto scales based on width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* Price Box */
+.food-price-box {
+    background-color: #4B4B3F; 
+    color: white;
+    width: 97%; 
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: -10px;
+    z-index: 1;
+}
+
+.food-price {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+@media (max-width: 1440px) {
+
+    .slider-img{
+        zoom: 0.8;
+    }
+}
+
+@media (max-width: 1024px) {
+    .rotating-table {
+        width: 75vmin;
+        height: 75vmin;
+        
+    }
+    .col-lg-7 {
+        min-height: 40vh; /* Adjust based on your layout */
+        padding-left: 3rem;
+    }
+    .dish{
+        width: 30vmin;
+        height: 30vmin;
+    }
+    .table-hole{
+        width: 60vh;  
+        height: 60vh;
+    } 
+    .slider-img{
+        zoom: 0.5;
+    }
+    #prev-btn, #next-btn {
+        width: 30px;  
+        height: 30px; 
+        font-size: 20px;
+    }
+    
+}
+
+
+
+@media (max-width: 768px) {
+    .menu-title {
+        font-size: 2rem;
+    }
+
+    .menu-item {
+        width: 130px; /* Slightly smaller for mobile */
+    }
+
+    .menu-item i {
+        font-size: 35px;
+    }
+
+    .rotating-table {
+        border: 8px solid #4B4B3F;
+        width: 90vmin;
+        height: 90vmin;
+        aspect-ratio: 1/1;
+        right: -60%;
+        top: -35%;
+        margin-bottom: -30%;
+        z-index: -1;
+       
+    }
+    #sliderr {
+        backdrop-filter: blur(8px); /* reduced blur amount for subtlety */
+        -webkit-backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.1); /* more transparent */
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); /* softer shadow */
+        padding: 1rem;
+        
+        border: 1px solid rgba(255, 255, 255, 0.2); /* optional: subtle border for depth */
+    }
+    
+    
+    
+    .dish {
+        width: 30vmin;
+        height: 30vmin;
+    }
+    .col-lg-7 {
+        min-height: 25vh; /* Adjust based on your layout */
+        
+    }
+    .slider-img{
+        zoom: 0.8;
+    }
+}
+
+@media (max-width: 425px) {
+    .rotating-table {
+        right: -50%;
+        top: 10%;
+    }
+    .dish {
+        border: 4px solid white;
+        padding: 4px;
+        aspect-ratio: 1/1;
+        width: 40vmin;
+        height: 40vmin;
+    }
+    .col-lg-7 {
+        min-height: 30vh; /* Adjust based on your layout */
+    }
+    .table-hole{
+        width: 35vh;  
+        height: 35vh;
+    }
+    * {
+        box-sizing: border-box;
+      }
+    html, body {
+        width: 100%;
+        position: relative;
+        overflow-x: clip;
+      }
+      #product-title {
+        font-size: 2.5rem; 
+    }
+    #product-desc {
+        font-size: 1rem;
+    }
+    .slider-img {
+        zoom: 0.4;
+        
+    }
+    #prev-btn, #next-btn {
+        width: 20px;  
+        height: 20px; 
+        font-size: 10px;
+    }
+    .left { top: 5%; left: -15%; }
+    .top { top: -15%; right: 5%; }
+    .bottom { bottom: -15%; left: 5%; }
+    .right { bottom: 5%; right:-15%; }
+    .logo-container {
+        margin-left: -30px;
+    }
+    .food-container {
+        zoom: 0.7;
+        
+    }
+   
+}
+
+
+
+/* Contact Section */
+.contact-section {
+    background-color: #5B5C55;
+    color: #F6F9F9;
+    padding: 80px 0 60px;
+    position: relative;
+}
+
+.contact-title {
+    color: #F6F9F9;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.contact-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #B5A878;
+}
+
+.contact-subtitle {
+    color: #F6F9F9;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Contact Form */
+.contact-form {
+    background: rgba(246, 249, 249, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(246, 249, 249, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 2rem 2.5rem;
+}
+
+.form-floating > .form-control {
+    background: rgba(246, 249, 249, 0.95);
+    border: none;
+    color: #4B4B3F;
+    height: 56px;
+    padding: 1rem 1.25rem;
+}
+
+.form-floating > textarea.form-control {
+    height: 150px;
+    resize: none;
+}
+
+.form-floating > label {
+    color: #6c757d;
+    padding: 1rem 1.25rem;
+}
+
+.form-control:focus {
+    border-color: #B5A878;
+    box-shadow: 0 0 0 0.25rem rgba(181, 168, 120, 0.25);
+}
+
+/* Submit Button */
+.contact-submit-btn {
+    background-color: #B5A878;
+    color: #4B4B3F;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    min-width: 200px;
+    padding: 0.75rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-submit-btn:hover {
+    background-color: #c8b98a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #4B4B3F;
+    animation: spin 1s ease-in-out infinite;
+    position: absolute;
+    left: calc(50% - 10px);
+    top: calc(50% - 10px);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Messages */
+.contact-success-message {
+    background: rgba(181, 168, 120, 0.15);
+    border-color: rgba(181, 168, 120, 0.3);
+    color: #F6F9F9;
+}
+
+.contact-error-message {
+    background: rgba(75, 75, 63, 0.15);
+    border-color: rgba(75, 75, 63, 0.3);
+    color: #F6F9F9;
+}
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+.footer-section {
+    background-color: #4B4B3F;
+    color: #F6F9F9;
+    padding: 60px 0 30px;
+}
+
+.footer-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #F6F9F9;
+    letter-spacing: 1px;
+}
+
+.footer-heading {
+    color: #B5A878;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #B5A878;
+}
+
+.footer-text {
+    color: rgba(246, 249, 249, 0.8);
+    line-height: 1.6;
+}
+
+.footer-link {
+    color: rgba(246, 249, 249, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #B5A878;
+    padding-left: 5px;
+}
+
+.footer-input {
+    background-color: rgba(246, 249, 249, 0.1) !important;
+    border: 1px solid rgba(246, 249, 249, 0.2) !important;
+    color: #F6F9F9 !important;
+    height: 45px;
+}
+
+.footer-input::placeholder {
+    color: rgba(246, 249, 249, 0.6) !important;
+}
+
+.footer-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(181, 168, 120, 0.25) !important;
+    border-color: #B5A878 !important;
+}
+
+.footer-submit-btn {
+    background-color: #B5A878 !important;
+    color: #4B4B3F !important;
+    border: none;
+    transition: all 0.3s;
+}
+
+.footer-submit-btn:hover {
+    background-color: #c8b98a !important;
+}
+
+.social-icons a {
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    color: #F6F9F9 !important;
+}
+
+.footer-copyright, .footer-credit {
+    color: rgba(246, 249, 249, 0.6);
+    font-size: 0.9rem;
+}
