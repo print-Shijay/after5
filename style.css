@@ -576,7 +576,7 @@ body {
     }
 
     .menu-item {
-        width: 130px; /* Slightly smaller for mobile */
+        width: 130px; 
     }
 
     .menu-item i {
@@ -621,6 +621,13 @@ body {
 }
 
 @media (max-width: 425px) {
+    .menu-item{
+        zoom: 0.8;
+     }
+ 
+     .gap{
+         gap: 3rem;
+     }
     .rotating-table {
         right: -50%;
         top: 10%;
@@ -676,7 +683,15 @@ body {
    
 }
 
+@media (max-width: 375px) {
+    .menu-item{
+       zoom: 0.5;
+    }
 
+    .gap{
+        gap: 3rem;
+    }
+}
 
 /* Contact Section */
 .contact-section {
