@@ -37,11 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `;
 
-            // In your menu.js file, modify the click handler to include the ID:
+            
             const infoButton = dishElement.querySelector('.cart-button');
             infoButton.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Navigate to details page with item ID and category
+                
                 window.location.href = `item-details.html?id=${item.id}&category=${encodeURIComponent(category)}`;
             });
 

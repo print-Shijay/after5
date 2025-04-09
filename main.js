@@ -26,7 +26,7 @@ function rotateTable(direction = 1) {
     rotation += 90 * direction;
     document.querySelector(".rotating-table").style.transform = `rotate(${rotation}deg)`;
 
-    // Counter-rotate each dish to keep them upright
+
     document.querySelectorAll(".dish").forEach(dish => {
         dish.style.transform = `rotate(${-rotation}deg)`;
     });
@@ -36,22 +36,22 @@ function rotateTable(direction = 1) {
 
 // Start auto-rotation with reset mechanism
 function startAutoRotate() {
-    if (autoRotate) clearInterval(autoRotate); // Prevent multiple intervals
+    if (autoRotate) clearInterval(autoRotate); 
     autoRotate = setInterval(() => rotateTable(1), 5000);
 }
 
 // Event Listeners for manual buttons (with reset)
 document.getElementById("next-btn").addEventListener("click", () => {
     rotateTable(1);
-    startAutoRotate(); // Restart auto-rotation
+    startAutoRotate(); 
 });
 
 document.getElementById("prev-btn").addEventListener("click", () => {
     rotateTable(-1);
-    startAutoRotate(); // Restart auto-rotation
+    startAutoRotate(); 
 });
 
-// Function to update product details based on rotation
+
 function updateProductDetails() {
     const products = [
         { title: "Deep Choco", desc: "Rich chocolate mousse with layers of dark cocoa and whipped cream." },
@@ -61,7 +61,7 @@ function updateProductDetails() {
     ];
 
     let index = (rotation / 90) % products.length;
-    if (index < 0) index += products.length; // Ensure positive index
+    if (index < 0) index += products.length; 
 
     // Update title and description
     document.getElementById("product-title").textContent = products[index].title;
@@ -75,9 +75,9 @@ function updateProductDetails() {
 function highlightImage(index) {
     const images = document.querySelectorAll(".slider-img");
     images.forEach((img, i) => {
-        img.classList.remove('highlight'); // Remove highlight class from all images
+        img.classList.remove('highlight'); 
         if (i === index) {
-            img.classList.add('highlight'); // Add highlight to the corresponding image
+            img.classList.add('highlight'); 
         }
     });
 }
@@ -85,28 +85,28 @@ function highlightImage(index) {
 // Event listener for image clicks to move to corresponding title
 document.querySelectorAll(".slider-img").forEach((img, index) => {
     img.addEventListener("click", () => {
-        // Rotate the table to the corresponding position
+        
         const targetRotation = (index * 90);
         const rotationSteps = (targetRotation - rotation) / 90;
         
-        // Rotate to the desired position with proper direction
+        
         rotateTable(rotationSteps);
-        startAutoRotate(); // Restart auto-rotation
+        startAutoRotate(); 
 
-        // Update the product details
+       
         updateProductDetails();
     });
 });
 
-// Start auto-rotation initially
+
 startAutoRotate();
 
 
 
 
-// Initialize EmailJS with your user ID
+
 (function() {
-    emailjs.init("pk_GRYOWQxfw86c29"); // You'll need to replace this with your actual EmailJS user ID
+    emailjs.init("pk_GRYOWQxfw86c29"); 
 })();
 
 document.getElementById('contactForm').addEventListener('submit', function(event) {
@@ -149,23 +149,20 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     const btnText = submitBtn.querySelector('.btn-text');
     const spinner = submitBtn.querySelector('.loading-spinner');
     
-    // Show loading state
+   
     submitBtn.disabled = true;
     btnText.classList.add('d-none');
     spinner.classList.remove('d-none');
     
-    // Simulate form submission (replace with your actual form submission code)
+    
     setTimeout(() => {
-        // On success:
-        document.getElementById('successMessage').classList.remove('d-none');
-        // On error: document.getElementById('errorMessage').classList.remove('d-none');
         
-        // Reset button state
+        document.getElementById('successMessage').classList.remove('d-none');
+       
         submitBtn.disabled = false;
         btnText.classList.remove('d-none');
         spinner.classList.add('d-none');
         
-        // Reset form if needed
-        // this.reset();
+        
     }, 2000);
 });
