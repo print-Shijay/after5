@@ -441,18 +441,16 @@ body {
     margin-bottom: 20px;
 }
 
-/* Cart Button */
+/* info Button */
 .cart-button {
     position: absolute;
     top: -12px;
     right: -12px;
-    width: 38px;
-    
     background-color: #4B4B3F;
     color: white;
     border: none;
     border-radius: 50%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
@@ -460,8 +458,10 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transition: background-color 0.3s ease, transform 0.2s ease;
     z-index: 2;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
+    padding: 0.3em;
 }
+
 
 .cart-button:hover {
     background-color: #3a3a32;
