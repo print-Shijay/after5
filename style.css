@@ -459,7 +459,7 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
     z-index: 2;
     aspect-ratio: 1 / 1;
-    padding: 0.3em;
+    padding: 3%;
 }
 
 
